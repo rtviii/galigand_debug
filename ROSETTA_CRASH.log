@@ -1,0 +1,102 @@
+##############################################################################################################
+#
+# Rosetta crash log. Please submit the contents of this file to http://crash.rosettacommons.org/
+# or use the script Rosetta/main/source/scripts/python/public/report_crashes.py
+#
+
+[START_CRASH_REPORT]
+[ROSETTA_VERSION]: 2024.09+release.06b3cf8ad0
+[COMMIT_DATE]: 2024-02-28T21:25:09.004217
+[APPLICATION]: rosetta_scripts.default.macosclangrelease
+[MODE]: Release
+[EXTRAS]: default
+[OS]: Apple Mac OS X
+[COMPILER]: Clang version "16.0.0 (clang-1600.0.26.6)"
+[STDLIB]: libc++ version 180100
+[START_OPTIONS]
+ -in:ignore_unrecognized_res -in:path:database=/Users/rtviii/dev/rosetta.binary.m1.release-371/main/database/ -in:file:s=6XKI.pdb -in:file:extra_res_fa=V6D.params -out:nstruct=10 -out:suffix=_galigand -out:file:scorefile=score_503A.sc -parser:protocol=galigand_minimal.xml -packing:use_input_sc -packing:ex1 -packing:ex2 -corrections:gen_potential
+
+[END_OPTIONS]
+
+[START_BACKTRACE]: RAW_LIBC
+0   libutility.dylib                    0x0000000108a0bfb4 backtrace_string(int) + 76
+1   libutility.dylib                    0x0000000108a2bd6c utility::excn::Exception::Exception(char const*, int, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&) + 228
+2   libutility.dylib                    0x0000000108a0f990 utility::UtilityExitException::UtilityExitException(char const*, int, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&) + 112
+3   libutility.dylib                    0x0000000108a0f834 utility::exit(char const*, int, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&, int) + 60
+4   libcore.3.dylib                     0x000000010c2a7d14 core::scoring::RamaPrePro::random_mainchain_torsions(core::conformation::Conformation const&, std::__1::shared_ptr<core::chemical::ResidueType const>, std::__1::shared_ptr<core::chemical::ResidueType const>, utility::vector1<double, std::__1::allocator<double>>&) const + 1044
+5   libprotocols_h.5.dylib              0x0000000104e6ea00 protocols::ligand_docking::ga_ligand_dock::LigandConformer::randomize(double) + 1180
+6   libprotocols_h.5.dylib              0x0000000104ee9d64 protocols::ligand_docking::ga_ligand_dock::GALigandDock::generate_perturbed_structures(protocols::ligand_docking::ga_ligand_dock::LigandConformer const&, std::__1::shared_ptr<protocols::ligand_docking::ga_ligand_dock::GridScorer>, unsigned long, protocols::ligand_docking::ga_ligand_dock::LigandAligner) const + 3384
+7   libprotocols_h.5.dylib              0x0000000104ee3d28 protocols::ligand_docking::ga_ligand_dock::GALigandDock::run_docking(protocols::ligand_docking::ga_ligand_dock::LigandConformer const&, std::__1::shared_ptr<protocols::ligand_docking::ga_ligand_dock::GridScorer>, protocols::ligand_docking::ga_ligand_dock::LigandAligner&, protocols::ligand_docking::ga_ligand_dock::OutputStructureStore&) + 244
+8   libprotocols_h.5.dylib              0x0000000104edec54 protocols::ligand_docking::ga_ligand_dock::GALigandDock::apply(core::pose::Pose&) + 21968
+9   libprotocols.1.dylib                0x00000001085aed78 protocols::rosetta_scripts::ParsedProtocol::apply_mover(core::pose::Pose&, protocols::rosetta_scripts::ParsedProtocol::ParsedProtocolStep const&) + 1252
+10  libprotocols.1.dylib                0x00000001085a8f90 protocols::rosetta_scripts::ParsedProtocol::apply(core::pose::Pose&) + 2348
+11  libprotocols.1.dylib                0x000000010831f250 protocols::jd2::JobDistributor::run_one_job(std::__1::shared_ptr<protocols::moves::Mover>&, long, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>>&, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>>&, unsigned long&, unsigned long&, bool) + 6564
+12  libprotocols.1.dylib                0x000000010831cac8 protocols::jd2::JobDistributor::go_main(std::__1::shared_ptr<protocols::moves::Mover>) + 128
+13  libprotocols.1.dylib                0x000000010831796c protocols::jd2::FileSystemJobDistributor::go(std::__1::shared_ptr<protocols::moves::Mover>) + 72
+14  rosetta_scripts.default.macosclangr 0x0000000102bdea7c main + 1316
+15  dyld                                0x000000019efcc274 start + 2840
+
+[END_BACKTRACE]
+
+[FILE]: src/core/scoring/RamaPrePro.cc
+[LINE]: 280
+[START_MESSAGE]
+[ ERROR ] UtilityExitException
+ERROR: Error in core::scoring::RamaPrePro::random_mainchain_torsions(): No mainchain score table for residue type RGU exists.
+
+
+
+[END_MESSAGE]
+[END_CRASH_REPORT]
+
+##############################################################################################################
+#
+# Rosetta crash log. Please submit the contents of this file to http://crash.rosettacommons.org/
+# or use the script Rosetta/main/source/scripts/python/public/report_crashes.py
+#
+
+[START_CRASH_REPORT]
+[ROSETTA_VERSION]: 2024.09+release.06b3cf8ad0
+[COMMIT_DATE]: 2024-02-28T21:25:09.004217
+[APPLICATION]: rosetta_scripts.default.macosclangrelease
+[MODE]: Release
+[EXTRAS]: default
+[OS]: Apple Mac OS X
+[COMPILER]: Clang version "16.0.0 (clang-1600.0.26.6)"
+[STDLIB]: libc++ version 180100
+[START_OPTIONS]
+ -in:ignore_unrecognized_res -in:path:database=/Users/rtviii/dev/rosetta.binary.m1.release-371/main/database/ -in:file:s=6XKI.pdb -in:file:extra_res_fa=V6D.params -out:nstruct=10 -out:suffix=_galigand -out:file:scorefile=score_503A.sc -parser:protocol=galigand_minimal.xml -packing:use_input_sc -packing:ex1 -packing:ex2 -corrections:gen_potential
+
+[END_OPTIONS]
+
+[START_BACKTRACE]: RAW_LIBC
+0   libutility.dylib                    0x0000000108a0bfb4 backtrace_string(int) + 76
+1   libutility.dylib                    0x0000000108a2bd6c utility::excn::Exception::Exception(char const*, int, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&) + 228
+2   libutility.dylib                    0x0000000108a0f990 utility::UtilityExitException::UtilityExitException(char const*, int, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&) + 112
+3   libutility.dylib                    0x0000000108a0f834 utility::exit(char const*, int, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>> const&, int) + 60
+4   libcore.3.dylib                     0x000000010c2a7d14 core::scoring::RamaPrePro::random_mainchain_torsions(core::conformation::Conformation const&, std::__1::shared_ptr<core::chemical::ResidueType const>, std::__1::shared_ptr<core::chemical::ResidueType const>, utility::vector1<double, std::__1::allocator<double>>&) const + 1044
+5   libprotocols_h.5.dylib              0x0000000104e6ea00 protocols::ligand_docking::ga_ligand_dock::LigandConformer::randomize(double) + 1180
+6   libprotocols_h.5.dylib              0x0000000104ee9d64 protocols::ligand_docking::ga_ligand_dock::GALigandDock::generate_perturbed_structures(protocols::ligand_docking::ga_ligand_dock::LigandConformer const&, std::__1::shared_ptr<protocols::ligand_docking::ga_ligand_dock::GridScorer>, unsigned long, protocols::ligand_docking::ga_ligand_dock::LigandAligner) const + 3384
+7   libprotocols_h.5.dylib              0x0000000104ee3d28 protocols::ligand_docking::ga_ligand_dock::GALigandDock::run_docking(protocols::ligand_docking::ga_ligand_dock::LigandConformer const&, std::__1::shared_ptr<protocols::ligand_docking::ga_ligand_dock::GridScorer>, protocols::ligand_docking::ga_ligand_dock::LigandAligner&, protocols::ligand_docking::ga_ligand_dock::OutputStructureStore&) + 244
+8   libprotocols_h.5.dylib              0x0000000104edec54 protocols::ligand_docking::ga_ligand_dock::GALigandDock::apply(core::pose::Pose&) + 21968
+9   libprotocols.1.dylib                0x00000001085aed78 protocols::rosetta_scripts::ParsedProtocol::apply_mover(core::pose::Pose&, protocols::rosetta_scripts::ParsedProtocol::ParsedProtocolStep const&) + 1252
+10  libprotocols.1.dylib                0x00000001085a8f90 protocols::rosetta_scripts::ParsedProtocol::apply(core::pose::Pose&) + 2348
+11  libprotocols.1.dylib                0x000000010831f250 protocols::jd2::JobDistributor::run_one_job(std::__1::shared_ptr<protocols::moves::Mover>&, long, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>>&, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>>&, unsigned long&, unsigned long&, bool) + 6564
+12  libprotocols.1.dylib                0x000000010831cb04 protocols::jd2::JobDistributor::go_main(std::__1::shared_ptr<protocols::moves::Mover>) + 188
+13  libprotocols.1.dylib                0x000000010831796c protocols::jd2::FileSystemJobDistributor::go(std::__1::shared_ptr<protocols::moves::Mover>) + 72
+14  rosetta_scripts.default.macosclangr 0x0000000102bdea7c main + 1316
+15  dyld                                0x000000019efcc274 start + 2840
+
+[END_BACKTRACE]
+
+[FILE]: src/core/scoring/RamaPrePro.cc
+[LINE]: 280
+[START_MESSAGE]
+[ ERROR ] UtilityExitException
+ERROR: Error in core::scoring::RamaPrePro::random_mainchain_torsions(): No mainchain score table for residue type RGU exists.
+
+
+
+[END_MESSAGE]
+[END_CRASH_REPORT]
+

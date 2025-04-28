@@ -1,0 +1,50 @@
+<ROSETTASCRIPTS>
+    <SCOREFXNS>
+        <ScoreFunction name="ga_dock_score" weights="beta_genpot">
+            <Reweight scoretype="fa_sol" weight="1.1"/>
+            <Reweight scoretype="fa_rep" weight="0.5"/>
+            <Reweight scoretype="gen_bonded" weight="1.0"/>
+        </ScoreFunction>
+
+        <ScoreFunction name="output_score" weights="beta_genpot">
+             <Reweight scoretype="fa_elec" weight="1.2"/>
+             <Reweight scoretype="fa_sol" weight="1.1"/>
+             <Reweight scoretype="fa_rep" weight="1.0"/>
+             <Reweight scoretype="gen_bonded" weight="1.0"/>
+         </ScoreFunction>
+    </SCOREFXNS>
+
+    <RESIDUE_SELECTORS>
+        <Chain name="rna_chain" chains="B"/>
+        <ResidueName name="rna_selector" residue_name3="RGU,RCY,RAD,RU,RC,RA,RG" />
+        <Chain name="ligand_chain" chains="L" />
+    </RESIDUE_SELECTORS>
+
+    <MOVE_MAP_FACTORIES>
+        <MoveMapFactory name="freeze_rna_factory" bb="false" chi="false">
+            <Backbone residue_selector="rna_chain" enable="false"/>
+            <Chi residue_selector="rna_chain" enable="false"/>
+        </MoveMapFactory>
+    </MOVE_MAP_FACTORIES>
+
+    <SCORINGGRIDS ligand_chain="L" width="45">
+        <ClassicGrid grid_name="classic" weight="1.0"/>
+    </SCORINGGRIDS>
+
+    <MOVERS>
+        <GALigandDock name="ga_dock_minimal"
+                      runmode="dockrigid"         
+                      scorefxn="ga_dock_score"    
+                      grid_step="1"
+                      padding="5.0"
+                      >
+                      </GALigandDock>
+    </MOVERS>
+
+    <PROTOCOLS>
+        <Add mover_name="ga_dock_minimal"/>
+    </PROTOCOLS>
+
+    <OUTPUT scorefxn="output_score"/>
+
+</ROSETTASCRIPTS>

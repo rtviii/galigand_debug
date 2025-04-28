@@ -1,0 +1,21 @@
+<ROSETTASCRIPTS>
+  <SCOREFXNS>
+    <ScoreFunction name="ref2015" weights="ref2015"/>
+  </SCOREFXNS>
+  <RESIDUE_SELECTORS>
+    <ResidueName name="v6d_ligand" residue_names="V6D"/>
+  </RESIDUE_SELECTORS>
+  <SIMPLE_METRICS>
+    <SelectedResiduesMetric 
+      name="v6d_residues" 
+      residue_selector="v6d_ligand"
+      rosetta_numbering="false"
+    />
+  </SIMPLE_METRICS>
+  <MOVERS>
+    <RunSimpleMetrics name="collect_metrics" metrics="v6d_residues"/>
+  </MOVERS>
+  <PROTOCOLS>
+    <Add mover="collect_metrics"/>
+  </PROTOCOLS>
+</ROSETTASCRIPTS>
